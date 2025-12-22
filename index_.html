@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const text =
+          "Доработка интерфейса и логики веб-сайта на JS, React, Vue";
+        const texts = document.querySelectorAll(".back");
+        texts.forEach((i) => {
+          const el = i.getElementsByTagName("div");
+          el[0].textContent = text;
+        });
+        Array.from({ length: 7 }, (_, i) => i + 1).forEach((id) => {
+          const btn = document.getElementById(`save_${id}`);
+
+          btn.onclick = async () => {
+            const el = document.getElementById("card_" + id);
+            const canvas = await html2canvas(el, { scale: 1 });
+            const link = document.createElement("a");
+            link.download = `card_${id}.png`;
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+          };
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="card_1" class="card_container">
+        <div class="card">
+          <div class="text_container">
+            <span
+              >Доработка интерфейса и логики веб-сайта на JS, TS, Next.js,
+              React</span
+            >
+          </div>
+          <div class="labels_container">
+            <div class="label">
+              <img src="./assets/HTML5.svg" alt="html" />
+            </div>
+            <div class="label">
+              <img src="./assets/CSS3.svg" alt="css" />
+            </div>
+            <div class="label">
+              <img src="./assets/Node.js.svg" alt="node.js" />
+            </div>
+            <div class="label">
+              <img src="./assets/TypeScript.svg" alt="typescript" />
+            </div>
+            <div class="label">
+              <img src="./assets/React.svg" alt="react" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<button id="save_1">Save 1</button>-->
+      <div id="card_2" class="card_container">
+        <div class="card">
+          <div class="text_container">
+            <span
+              >Исправление багов верстки веб-сайта на JS, TS, Next.js,
+              React</span
+            >
+          </div>
+          <div class="labels_container">
+            <div class="label">
+              <img src="./assets/HTML5.svg" alt="html" />
+            </div>
+            <div class="label">
+              <img src="./assets/CSS3.svg" alt="css" />
+            </div>
+            <div class="label">
+              <img src="./assets/Node.js.svg" alt="node.js" />
+            </div>
+            <div class="label">
+              <img src="./assets/TypeScript.svg" alt="typescript" />
+            </div>
+            <div class="label">
+              <img src="./assets/React.svg" alt="react" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<button id="save_2">Save 2</button>-->
+
+      <div id="card_2" class="card_container">
+        <div class="card">
+          <div class="text_container">
+            <span>Разработка React компонентов интерфейсов</span>
+          </div>
+          <div class="labels_container">
+            <div class="label">
+              <img src="./assets/HTML5.svg" alt="html" />
+            </div>
+            <div class="label">
+              <img src="./assets/CSS3.svg" alt="css" />
+            </div>
+            <div class="label">
+              <img src="./assets/Node.js.svg" alt="node.js" />
+            </div>
+            <div class="label">
+              <img src="./assets/TypeScript.svg" alt="typescript" />
+            </div>
+            <div class="label">
+              <img src="./assets/React.svg" alt="react" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<button id="save_2">Save 2</button>-->
+
+      <div id="card_2" class="card_container">
+        <div class="card">
+          <div class="text_container">
+            <span
+              >Верстка интерфейсов веб-сайтов. HTML, JSX, TSX, CSS, SCSS</span
+            >
+          </div>
+          <div class="labels_container">
+            <div class="label">
+              <img src="./assets/HTML5.svg" alt="html" />
+            </div>
+            <div class="label">
+              <img src="./assets/CSS3.svg" alt="css" />
+            </div>
+            <div class="label">
+              <img src="./assets/Node.js.svg" alt="node.js" />
+            </div>
+            <div class="label">
+              <img src="./assets/TypeScript.svg" alt="typescript" />
+            </div>
+            <div class="label">
+              <img src="./assets/React.svg" alt="react" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<button id="save_2">Save 2</button>-->
+
+      <div id="card_2" class="card_container">
+        <div class="card">
+          <div class="text_container">
+            <span>Интеграция с API (Rest, GraphQL)</span>
+          </div>
+          <div class="labels_container">
+            <div class="label">
+              <img src="./assets/HTML5.svg" alt="html" />
+            </div>
+            <div class="label">
+              <img src="./assets/CSS3.svg" alt="css" />
+            </div>
+            <div class="label">
+              <img src="./assets/Node.js.svg" alt="node.js" />
+            </div>
+            <div class="label">
+              <img src="./assets/TypeScript.svg" alt="typescript" />
+            </div>
+            <div class="label">
+              <img src="./assets/React.svg" alt="react" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="back_3 back">
+        <div class="text_3">sdfg</div>
+      </div>
+      <div class="back_1 back">
+        <div class="text_1">{text}</div>
+      </div>
+      <div class="back_2 back">
+        <div class="text_2">sdfg</div>
+      </div>
+      <div class="back_4 back">
+        <div class="text_4">sdfg</div>
+      </div>
+      <div class="back_5 back">
+        <div class="text_5">sdfg</div>
+      </div>
+    </div>
+  </body>
+</html>

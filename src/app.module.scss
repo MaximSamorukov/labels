@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+  overflow-y: scroll;
+}

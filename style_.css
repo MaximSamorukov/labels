@@ -1,0 +1,136 @@
+body {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Tektur", sans-serif;
+  font-optical-sizing: auto;
+}
+.container {
+  width: 800px;
+  height: fit-content;
+}
+.back {
+  height: 400px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.back_1 {
+  background-color: #111827;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text_1 {
+  font-size: 40px;
+  color: #2dd4bf;
+}
+
+.back_2 {
+  background-color: #1e293b;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_2 {
+  font-size: 40px;
+  color: #38bdf8;
+}
+
+.back_4 {
+  background-color: #14532d;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_4 {
+  font-size: 40px;
+  color: #a3e635;
+}
+
+.back_5 {
+  background-color: #0f172a;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_5 {
+  font-size: 40px;
+  color: #38bdf8;
+}
+
+.back_3 {
+  background-color: #2a2a2a;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_3 {
+  font-size: 40px;
+  color: #f59e0b;
+}
+
+.back {
+  height: 400px;
+}
+
+.card_container {
+  height: 400px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f59e0b;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 98%;
+  height: 98%;
+  background-color: #2a2a2a;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.text_container {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 45px;
+  color: #f59e0b;
+}
+.labels_container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.label {
+  flex: 1;
+}
