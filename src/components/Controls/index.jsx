@@ -1,16 +1,19 @@
-import React from 'react'
+import React from 'react';
 import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
-import { state } from '@/state';
+import { useLocalStorage } from '@/hooks';
 
 export const Controls = observer(() => {
-  const onAddInput = () => {
-    console.log('add input')
-    state.addEmptyInput()
-  }
+  const { addNewItem } = useLocalStorage();
+
+  const onAddItem = () => {
+    addNewItem();
+  };
   return (
     <div className={s.container}>
-      <button className={s.button} onClick={onAddInput}>Add Input</button>
+      <button className={s.button} onClick={onAddItem}>
+        Add New Item
+      </button>
     </div>
-  )
-})
+  );
+});

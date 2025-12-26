@@ -1,40 +1,67 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
 import { state } from '@/state';
-import HTML5Icon from '@/assets/HTML5.svg';
-import CSS3Icon from '@/assets/CSS3.svg';
-import NodeIcon from '@/assets/Node.js.svg';
-import TypeScriptIcon from '@/assets/TypeScript.svg';
-import ReactIcon from '@/assets/React.svg';
+import HTML5Icon from '@/assets/html.svg';
+import CSS3Icon from '@/assets/css.svg';
+import NodeIcon from '@/assets/nodejs.svg';
+import TypeScriptIcon from '@/assets/typescript.svg';
+import ReactIcon from '@/assets/react.svg';
+import VueIcon from '@/assets/vue.svg';
+import NextIcon from '@/assets/nextjs.svg';
+import { L } from '@/constants';
+
+const iconsSVGs = {
+  [L.HTML]: HTML5Icon,
+  [L.CSS]: CSS3Icon,
+  [L.REACT]: ReactIcon,
+  [L.TYPESCRIPT]: TypeScriptIcon,
+  [L.NODEJS]: NodeIcon,
+  [L.VUE]: VueIcon,
+  [L.NEXTJS]: NextIcon,
+};
 
 export const AdvertismentField = observer(() => {
-  const label = state.previewItem.label;
+  const {
+    title,
+    titleFontSize,
+    titleColor,
+    description,
+    descriptionFontSize,
+    descriptionColor,
+    bgColor,
+    borderColor,
+    icons,
+  } = state.previewItem;
   return (
     <div className={s.container}>
-      <div id="card_1" className={s.card_container}>
-        <div className={s.card}>
+      <div
+        id="card"
+        className={s.card_container}
+        style={{ backgroundColor: borderColor }}
+      >
+        <div className={s.card} style={{ backgroundColor: bgColor }}>
           <div className={s.text_container}>
-            <span>{label}</span>
+            <span style={{ fontSize: titleFontSize, color: titleColor }}>
+              {title}
+            </span>
+          </div>
+          <div className={s.text_container}>
+            <span
+              style={{ fontSize: descriptionFontSize, color: descriptionColor }}
+            >
+              {description}
+            </span>
           </div>
           <div className={s.labels_container}>
-            <div className={s.label}>
-              <img src={HTML5Icon} alt="html" />
-            </div>
-            <div className={s.label}>
-              <img src={CSS3Icon} alt="css" />
-            </div>
-            <div className={s.label}>
-              <img src={NodeIcon} alt="node.js" />
-            </div>
-            <div className={s.label}>
-              <img src={TypeScriptIcon} alt="typescript" />
-            </div>
-            <div className={s.label}>
-              <img src={ReactIcon} alt="react" />
-            </div>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div className={s.label}>
+                <img src={iconsSVGs[icons[index]]} alt={icons[index]} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  )})
+  );
+});
