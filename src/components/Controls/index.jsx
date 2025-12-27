@@ -13,23 +13,62 @@ export const Controls = observer(() => {
   };
   const onSaveItem = async () => {
     const el = document.getElementById('card');
+    if (!el) {
+      console.error('Element not found');
+      return;
+    }
+
     try {
+      // Ждем загрузки всех изображений
+      const images = el.querySelectorAll('img');
+      await Promise.all(
+        Array.from(images).map(
+          img =>
+            new Promise((resolve, reject) => {
+              if (img.complete) {
+                resolve();
+              } else {
+                img.onload = resolve;
+                img.onerror = reject;
+              }
+            })
+        )
+      );
+
+      // Небольшая задержка для применения стилей
+      await new Promise(resolve => setTimeout(resolve, 100));
+
       const canvas = await html2canvas(el, {
-        scale: 2, // Увеличьте для лучшего качества
-        useCORS: true, // Для внешних ресурсов
-        allowTaint: true, // Разрешить "загрязненный" canvas
-        backgroundColor: null, // Прозрачный фон
-        logging: true, // Включить логирование для отладки
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null,
+        logging: false,
+        width: el.offsetWidth,
+        height: el.offsetHeight,
       });
 
-      const link = document.createElement('a');
-      link.download = `card_${previewItem.id}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      // Проверяем, что canvas не пустой
+      if (canvas.width === 0 || canvas.height === 0) {
+        console.error('Canvas has zero dimensions');
+        return;
+      }
+
+      canvas.toBlob(blob => {
+        if (!blob) {
+          console.error('Failed to create blob');
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.download = `card_${previewItem.id}.png`;
+        link.href = url;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
     } catch (error) {
       console.error('Error creating screenshot:', error);
     }
-    //addNewItem();
   };
   return (
     <div className={s.container}>
