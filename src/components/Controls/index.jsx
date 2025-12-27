@@ -9,10 +9,16 @@ export const Controls = observer(() => {
   const onAddItem = () => {
     addNewItem();
   };
+  const onSaveItem = () => {
+    //addNewItem();
+  };
   return (
     <div className={s.container}>
       <button className={s.button} onClick={onAddItem}>
         Add New Item
+      </button>
+      <button className={s.button} onClick={onSaveItem}>
+        Save Item
       </button>
     </div>
   );

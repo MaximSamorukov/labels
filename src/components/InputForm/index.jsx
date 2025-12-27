@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React from 'react';
 import ViewIcon from '@/assets/view.svg?react';
 import RemoveIcon from '@/assets/remove.svg?react';
 import s from './style.module.scss';
@@ -8,18 +8,11 @@ import { useCustomContext } from '@/hooks/useCustomContext';
 import { state } from '@/state';
 import { FontsSelector } from '../FontsSelector';
 import { FontColorsSelector } from '../FontColorsSelector';
+import { CustomTextInput } from '../CustomTextInput';
 
-export const InputForm = observer(({ id }) => {
+export const InputForm = observer(({ id, index }) => {
   const { getItemById, deleteItem } = useCustomContext();
 
-  const item = useMemo(() => {
-    const i = getItemById(id);
-    return i;
-  }, [id]);
-
-  const handleChange = v => {
-    setText(v.target.value);
-  };
   const handlePreview = () => {
     const i = getItemById(id);
     state.onMakePreview(i);
@@ -28,6 +21,7 @@ export const InputForm = observer(({ id }) => {
   const onDeleteItem = () => {
     deleteItem(id);
   };
+
   return (
     <div className={s.container}>
       <div className={s.firstRow}>
@@ -41,7 +35,10 @@ export const InputForm = observer(({ id }) => {
           <FontColorsSelector id={id} />
         </div>
         <div className={s.textsContainer}>
-          <input value={item?.title} onChange={handleChange} />
+          <CustomTextInput id={id} type={'title'} />
+        </div>
+        <div className={s.textsContainer}>
+          <CustomTextInput id={id} type={'description'} />
         </div>
       </div>
       <div className={s.secondRow}>

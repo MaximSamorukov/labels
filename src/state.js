@@ -18,7 +18,6 @@ class State {
   }
 
   onMakePreview(item) {
-    console.log('preview', item);
     if (item) {
       this.previewItem = { ...item };
     }

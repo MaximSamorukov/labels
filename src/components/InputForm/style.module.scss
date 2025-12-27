@@ -2,12 +2,13 @@
   width: 100%;
   height: fit-content;
   box-sizing: border-box;
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   gap: 5px;
+  border-top: 2px solid rgba(grey, 0.5);
 
   input {
     height: 30px;
@@ -44,7 +45,7 @@
   justify-content: space-between;
   width: 100%;
   height: fit-content;
-  border: 1px solid hotpink;
+  // border: 1px solid hotpink;
 }
 
 .fontsContainer {
@@ -54,7 +55,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid hotpink;
+  // border: 1px solid hotpink;
 }
 
 .colorsContainer {
@@ -64,7 +65,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid hotpink;
+  // border: 1px solid hotpink;
 }
 .textsContainer {
   width: 100%;
@@ -73,7 +74,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid hotpink;
+  // border: 1px solid hotpink;
 }
 
 .button {

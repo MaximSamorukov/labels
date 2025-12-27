@@ -7,13 +7,13 @@ import { useCustomContext } from './hooks/useCustomContext';
 
 const App = observer(() => {
   const { items } = useCustomContext();
-  console.log('items', items);
+
   return (
     <div className={s.content}>
       <AdvertismentField />
       <Controls />
-      {items.map(i => (
-        <InputForm key={i.id} id={i.id} />
+      {items.map((i, index) => (
+        <InputForm key={i.id} id={i.id} index={index} />
       ))}
     </div>
   );

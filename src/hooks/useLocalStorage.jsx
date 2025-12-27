@@ -9,7 +9,6 @@ export const useLocalStorage = () => {
 
   // Загрузка всех items при монтировании
   useEffect(() => {
-    console.log('effect');
     const loadItems = () => {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);

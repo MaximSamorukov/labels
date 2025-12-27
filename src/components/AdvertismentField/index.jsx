@@ -35,7 +35,7 @@ export const AdvertismentField = observer(() => {
     borderColor,
     icons,
   } = state.previewItem;
-  console.log(titleFontSize, descriptionFontSize);
+
   return (
     <div className={s.container}>
       <div
