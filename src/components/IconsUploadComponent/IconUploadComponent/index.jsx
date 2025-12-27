@@ -1,17 +1,31 @@
 import React from 'react';
 import s from './style.module.scss';
 import { L } from '@/constants';
+import { useCustomContext } from '@/hooks/useCustomContext';
 
-export const IconUploadComponent = ({ index, current }) => {
+export const IconUploadComponent = ({ index, id }) => {
+  const { getItemById, saveItem } = useCustomContext();
+  const currentItem = getItemById(id);
+
+  const current = currentItem?.icons[index];
   const onSelect = e => {
-    console.log(index, e.target.value);
+    saveItem({
+      ...currentItem,
+      icons: {
+        ...currentItem.icons,
+        [index]: e.target.value,
+      },
+    });
   };
-  console.log(current);
+
   return (
     <div className={s.container}>
-      <select onChange={onSelect}>
+      <select value={current} onChange={onSelect}>
+        <option value="">---</option>
         {Object.entries(L).map(([key, value]) => (
-          <option key={key}>{value}</option>
+          <option value={value} key={key}>
+            {value}
+          </option>
         ))}
       </select>
     </div>

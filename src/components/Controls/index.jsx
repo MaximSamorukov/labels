@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
-import { useLocalStorage } from '@/hooks';
+import { useCustomContext } from '@/hooks/useCustomContext';
 
 export const Controls = observer(() => {
-  const { addNewItem } = useLocalStorage();
+  const { addNewItem } = useCustomContext();
 
   const onAddItem = () => {
     addNewItem();

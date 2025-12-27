@@ -3,6 +3,7 @@ import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
 import { state } from '@/state';
 import HTML5Icon from '@/assets/html.svg';
+import JavaScriptIcon from '@/assets/javascript.svg';
 import CSS3Icon from '@/assets/css.svg';
 import NodeIcon from '@/assets/nodejs.svg';
 import TypeScriptIcon from '@/assets/typescript.svg';
@@ -19,6 +20,7 @@ const iconsSVGs = {
   [L.NODEJS]: NodeIcon,
   [L.VUE]: VueIcon,
   [L.NEXTJS]: NextIcon,
+  [L.JAVASCRIPT]: JavaScriptIcon,
 };
 
 export const AdvertismentField = observer(() => {

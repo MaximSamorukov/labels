@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx';
-import { v4 as uuid } from 'uuid';
 import { AdvItem } from './advertisementItem';
 
 class State {
@@ -19,6 +18,7 @@ class State {
   }
 
   onMakePreview(item) {
+    console.log('preview', item);
     if (item) {
       this.previewItem = { ...item };
     }

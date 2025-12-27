@@ -9,6 +9,7 @@ export const useLocalStorage = () => {
 
   // Загрузка всех items при монтировании
   useEffect(() => {
+    console.log('effect');
     const loadItems = () => {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
@@ -53,17 +54,12 @@ export const useLocalStorage = () => {
     [items]
   );
 
-  const addNewItem = useCallback(() => {
-    const id = uuid();
-    const label = 'Введите текст объявления';
-    const item = new AdvItem(id, label, '', '', 'description', '', '', '', '');
-    saveItem(item);
-  });
   // Сохранить или обновить item
   const saveItem = useCallback(
     item => {
       try {
         const existingIndex = items.findIndex(i => i.id === item.id);
+        console.log(existingIndex);
         let updatedItems;
 
         if (existingIndex !== -1) {
@@ -72,9 +68,8 @@ export const useLocalStorage = () => {
           updatedItems[existingIndex] = item;
         } else {
           // Добавляем новый
-          updatedItems = [...items, item];
+          updatedItems = [item, ...items];
         }
-
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedItems));
         setItems(updatedItems);
       } catch (error) {
@@ -83,6 +78,13 @@ export const useLocalStorage = () => {
     },
     [items]
   );
+  const addNewItem = useCallback(() => {
+    const id = uuid();
+    console.log(id);
+    const label = 'Введите текст объявления';
+    const item = new AdvItem(id, label, '', '', 'description', '', '', '', '');
+    saveItem(item);
+  }, [saveItem]);
 
   // Удалить item по id
   const deleteItem = useCallback(
