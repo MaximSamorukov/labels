@@ -13,12 +13,22 @@ export const Controls = observer(() => {
   };
   const onSaveItem = async () => {
     const el = document.getElementById('card');
-    const canvas = await html2canvas(el, { scale: 1 });
-    const link = document.createElement('a');
-    link.download = `card_${previewItem.id}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    console.log(el);
+    try {
+      const canvas = await html2canvas(el, {
+        scale: 2, // Увеличьте для лучшего качества
+        useCORS: true, // Для внешних ресурсов
+        allowTaint: true, // Разрешить "загрязненный" canvas
+        backgroundColor: null, // Прозрачный фон
+        logging: true, // Включить логирование для отладки
+      });
+
+      const link = document.createElement('a');
+      link.download = `card_${previewItem.id}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (error) {
+      console.error('Error creating screenshot:', error);
+    }
     //addNewItem();
   };
   return (
