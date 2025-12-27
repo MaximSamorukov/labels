@@ -1,0 +1,14 @@
+.container {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    width: 30%;
+    height: 50%;
+  }
+}

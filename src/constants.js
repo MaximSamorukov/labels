@@ -18,3 +18,5 @@ export const Icons = {
   [L.TYPESCRIPT]: 'typescript.svg',
   [L.VUE]: 'vue.svg',
 };
+
+export const FONTS_SIZES = Array.from({ length: 25 }).map((_, i) => 10 + i * 2);

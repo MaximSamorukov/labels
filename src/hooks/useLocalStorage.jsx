@@ -59,7 +59,6 @@ export const useLocalStorage = () => {
     item => {
       try {
         const existingIndex = items.findIndex(i => i.id === item.id);
-        console.log(existingIndex);
         let updatedItems;
 
         if (existingIndex !== -1) {
@@ -80,9 +79,8 @@ export const useLocalStorage = () => {
   );
   const addNewItem = useCallback(() => {
     const id = uuid();
-    console.log(id);
-    const label = 'Введите текст объявления';
-    const item = new AdvItem(id, label, '', '', 'description', '', '', '', '');
+    const title = 'Введите текст объявления';
+    const item = new AdvItem(id, title, '', '', 'description', '', '', '', '');
     saveItem(item);
   }, [saveItem]);
 

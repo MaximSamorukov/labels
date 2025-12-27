@@ -6,6 +6,8 @@ import { observer } from 'mobx-react-lite';
 import { IconsUploadComponent } from '../IconsUploadComponent';
 import { useCustomContext } from '@/hooks/useCustomContext';
 import { state } from '@/state';
+import { FontsSelector } from '../FontsSelector';
+import { FontColorsSelector } from '../FontColorsSelector';
 
 export const InputForm = observer(({ id }) => {
   const { getItemById, deleteItem } = useCustomContext();
@@ -33,10 +35,10 @@ export const InputForm = observer(({ id }) => {
           <IconsUploadComponent id={id} />
         </div>
         <div className={s.fontsContainer}>
-          <IconsUploadComponent />
+          <FontsSelector id={id} />
         </div>
         <div className={s.colorsContainer}>
-          <IconsUploadComponent />
+          <FontColorsSelector id={id} />
         </div>
         <div className={s.textsContainer}>
           <input value={item?.title} onChange={handleChange} />
