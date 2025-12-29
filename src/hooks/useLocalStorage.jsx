@@ -68,8 +68,7 @@ export const useLocalStorage = () => {
   );
   const addNewItem = useCallback(() => {
     const id = uuid();
-    const title = 'Введите текст объявления';
-    const item = new AdvItem(baseItem);
+    const item = new AdvItem({ ...baseItem, id });
     saveItem(item);
   }, [saveItem]);
 

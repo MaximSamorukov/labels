@@ -1,12 +1,13 @@
 import React from 'react';
 import s from './style.module.scss';
 import { IconUploadComponent } from './IconUploadComponent';
+import { defaultIcons } from '@/constants';
 
 export const IconsUploadComponent = ({ id }) => {
   return (
     <div className={s.container}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <IconUploadComponent id={id} index={i} />
+      {Object.keys(defaultIcons).map((_, i) => (
+        <IconUploadComponent key={i} id={id} index={i} />
       ))}
     </div>
   );

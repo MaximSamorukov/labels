@@ -10,7 +10,7 @@ import TypeScriptIcon from '@/assets/typescript.svg';
 import ReactIcon from '@/assets/react.svg';
 import VueIcon from '@/assets/vue.svg';
 import NextIcon from '@/assets/nextjs.svg';
-import { L } from '@/constants';
+import { defaultIcons, L } from '@/constants';
 
 const iconsSVGs = {
   [L.HTML]: HTML5Icon,
@@ -71,8 +71,8 @@ export const AdvertismentField = observer(() => {
             </div>
           ))}
           <div className={s.labels_container}>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <div className={s.label}>
+            {Object.keys(defaultIcons).map((_, index) => (
+              <div className={s.label} key={index}>
                 <img src={iconsSVGs[icons[index]]} alt={icons[index]} />
               </div>
             ))}
