@@ -28,14 +28,16 @@ export const AdvertismentField = observer(() => {
     title,
     titleFontSize,
     titleColor,
+    titleFontFamily,
     description,
     descriptionFontSize,
     descriptionColor,
+    descriptionFontFamily,
     bgColor,
     borderColor,
     icons,
   } = state.previewItem;
-
+  const descriptionLines = description.split('||').map(i => i.trim());
   return (
     <div className={s.container}>
       <div
@@ -45,17 +47,29 @@ export const AdvertismentField = observer(() => {
       >
         <div className={s.card} style={{ backgroundColor: bgColor }}>
           <div className={s.text_container}>
-            <span style={{ fontSize: titleFontSize, color: titleColor }}>
+            <span
+              style={{
+                fontSize: titleFontSize,
+                color: titleColor,
+                fontFamily: titleFontFamily,
+              }}
+            >
               {title}
             </span>
           </div>
-          <div className={s.text_container}>
-            <span
-              style={{ fontSize: descriptionFontSize, color: descriptionColor }}
-            >
-              {description}
-            </span>
-          </div>
+          {descriptionLines.map(descText => (
+            <div className={s.text_container}>
+              <span
+                style={{
+                  fontFamily: descriptionFontFamily,
+                  fontSize: descriptionFontSize,
+                  color: descriptionColor,
+                }}
+              >
+                {descText}
+              </span>
+            </div>
+          ))}
           <div className={s.labels_container}>
             {Array.from({ length: 5 }).map((_, index) => (
               <div className={s.label}>

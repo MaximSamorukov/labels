@@ -1,13 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import './fonts.scss';
 
 body {
   margin: 0;
   color: #fff;
-  font-family: "Merriweather", serif;
+  font-family: 'Merriweather', serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
+  font-variation-settings: 'wdth' 100;
   background-image: linear-gradient(to bottom, #020917, #101725);
   background-color: #fff;
 }

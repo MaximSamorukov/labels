@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { AdvItem } from '@/advertisementItem';
 import { v4 as uuid } from 'uuid';
+import { baseItem } from '@/constants';
 
 const STORAGE_KEY = 'advItems';
 
@@ -17,18 +18,7 @@ export const useLocalStorage = () => {
           // Восстанавливаем объекты как экземпляры AdvItem
           const restoredItems = [];
           Object.entries(parsed).forEach(([id, data], index) => {
-            restoredItems[index] = new AdvItem(
-              data.id,
-              data.title,
-              data.titleFontSize,
-              data.titleColor,
-              data.description,
-              data.descriptionFontSize,
-              data.descriptionColor,
-              data.bgColor,
-              data.borderColor,
-              data.icons
-            );
+            restoredItems[index] = new AdvItem({ ...data });
           });
           setItems(restoredItems);
         }
@@ -79,7 +69,7 @@ export const useLocalStorage = () => {
   const addNewItem = useCallback(() => {
     const id = uuid();
     const title = 'Введите текст объявления';
-    const item = new AdvItem(id, title, '', '', 'description', '', '', '', '');
+    const item = new AdvItem(baseItem);
     saveItem(item);
   }, [saveItem]);
 

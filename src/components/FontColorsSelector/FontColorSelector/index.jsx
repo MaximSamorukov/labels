@@ -18,6 +18,7 @@ export const FontColorSelector = ({ type, id }) => {
 
   return (
     <div className={s.container}>
+      <div className={s.label}>{key}</div>
       <input type="color" value={fontColor} onChange={onSelect} />
     </div>
   );

@@ -1,18 +1,9 @@
 import { makeAutoObservable } from 'mobx';
 import { AdvItem } from './advertisementItem';
+import { baseItem } from './constants';
 
 class State {
-  previewItem = new AdvItem(
-    'id',
-    'label',
-    45,
-    '',
-    'description',
-    25,
-    '',
-    '',
-    ''
-  );
+  previewItem = new AdvItem(baseItem);
   constructor() {
     makeAutoObservable(this);
   }

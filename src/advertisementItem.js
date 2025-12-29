@@ -1,37 +1,34 @@
-import { L } from '@/constants';
-
-const defaultIcons = {
-  0: L.HTML,
-  1: L.CSS,
-  2: L.REACT,
-  3: L.TYPESCRIPT,
-  4: L.NODEJS,
-};
+import { DEFAULT_FONT_SIZE, defaultIcons } from '@/constants';
 
 export class AdvItem {
   id = null;
   title = null;
-  titleFontSize = 45;
+  titleFontSize = DEFAULT_FONT_SIZE.TITLE;
   titleColor = '#f59e0b';
   description = null;
-  descriptionFontSize = 25;
+  descriptionFontSize = DEFAULT_FONT_SIZE.DESCRIPTION;
   descriptionColor = '#f59e0b';
   bgColor = '#464545';
   borderColor = '#f59e0b';
   icons = defaultIcons;
+  titleFontFamily = 'MERRIWEATHER';
+  descriptionFontFamily = 'MERRIWEATHER';
 
-  constructor(
-    id,
-    title,
-    titleFontSize,
-    titleColor,
-    description,
-    descriptionFontSize,
-    descriptionColor,
-    bgColor,
-    borderColor,
-    icons = defaultIcons
-  ) {
+  constructor(data) {
+    const {
+      id,
+      title,
+      titleFontSize,
+      titleColor,
+      description,
+      descriptionFontSize,
+      descriptionColor,
+      bgColor,
+      borderColor,
+      icons = defaultIcons,
+      titleFontFamily,
+      descriptionFontFamily,
+    } = data;
     this.id = id;
     this.title = title;
     this.titleFontSize = titleFontSize || this.titleFontSize;
@@ -42,5 +39,7 @@ export class AdvItem {
     this.bgColor = bgColor || this.bgColor;
     this.borderColor = borderColor || this.borderColor;
     this.icons = icons;
+    this.titleFontFamily = titleFontFamily;
+    this.descriptionFontFamily = descriptionFontFamily;
   }
 }
