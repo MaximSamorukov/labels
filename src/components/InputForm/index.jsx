@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ViewIcon from '@/assets/view.svg?react';
 import RemoveIcon from '@/assets/remove.svg?react';
 import s from './style.module.scss';
@@ -17,8 +17,14 @@ export const InputForm = observer(({ id, index }) => {
 
   const handlePreview = () => {
     const i = getItemById(id);
-    state.onMakePreview(i);
+    if (i) {
+      state.onMakePreview(i);
+    }
   };
+
+  useEffect(() => {
+    handlePreview();
+  }, []);
 
   const onDeleteItem = () => {
     deleteItem(id);
